@@ -9,9 +9,11 @@ import java.util.Random;
 // BAD PRACTICE [S109]: magic numbers 200 and 4 used repeatedly without named constants
 // BAD PRACTICE [S2093]: Closeable resource not managed with try-with-resources
 // BAD PRACTICE [S4790]: MD5 is a weak hashing algorithm — use SHA-256 or stronger
+
 public class RestauranteUtils {
 
     public static final Random RANDOM = new Random();
+    private static final String ESTADO_CONFIRMADA = "CONFIRMADA";
 
     public RestauranteUtils() {
     }
@@ -31,13 +33,13 @@ public class RestauranteUtils {
         if (notas != null && notas.length() > 200) {
             return false;
         }
-        if ("CONFIRMADA".equals(estado) && notas == null) {
+        if (ESTADO_CONFIRMADA.equals(estado) && notas == null) {
             return false;
         }
-        if ("CONFIRMADA".equals(estado) && notas.trim().isEmpty()) {
+        if (ESTADO_CONFIRMADA.equals(estado) && notas.trim().isEmpty()) {
             return false;
         }
-        return !"CONFIRMADA".equals(estado) || notas.length() <= 200;
+        return !ESTADO_CONFIRMADA.equals(estado) || notas.length() <= 200;
     }
 
     public static String resumirNotas(String notas) {
