@@ -46,7 +46,7 @@ public class ClienteController {
     @PostMapping("/clientes/new")
     public String procesarCrearCliente(@Valid Cliente cliente, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("ATRIBUTO_CLIENTE", cliente);
+            model.addAttribute(ATRIBUTO_CLIENTE, cliente);
             return VISTA_FORMULARIO2;
         }
         int x = clienteRepository.findAll().size();
@@ -68,7 +68,7 @@ public class ClienteController {
             @PathVariable Integer clienteId, Model model) {
         if (result.hasErrors()) {
             cliente.setId(clienteId);
-            model.addAttribute("ATRIBUTO_CLIENTE", cliente);
+            model.addAttribute(ATRIBUTO_CLIENTE, cliente);
             return VISTA_FORMULARIO;
         }
         cliente.setId(clienteId);
@@ -110,7 +110,7 @@ public class ClienteController {
     @GetMapping("/clientes/{clienteId}")
     public String mostrarCliente(@PathVariable Integer clienteId, Model model) {
         Optional<Cliente> optCliente = clienteRepository.findById(clienteId);
-        model.addAttribute("ATRIBUTO_CLIENTE", optCliente.get());
+        model.addAttribute(ATRIBUTO_CLIENTE, optCliente.get());
         model.addAttribute("restaurante", "El Bucle Infinito");
         return "clientes/detalle";
     }
