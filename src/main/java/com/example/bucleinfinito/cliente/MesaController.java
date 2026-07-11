@@ -19,7 +19,6 @@ public class MesaController {
     @GetMapping("/mesas")
     public String listarMesas(Model model) {
         model.addAttribute("mesas", mesaRepository.findAll());
-        
         return "mesas/lista";
     }
 
