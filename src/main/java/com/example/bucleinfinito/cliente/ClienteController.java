@@ -110,7 +110,7 @@ public class ClienteController {
     @GetMapping("/clientes/{clienteId}")
     public String mostrarCliente(@PathVariable Integer clienteId, Model model) {
         Optional<Cliente> optCliente = clienteRepository.findById(clienteId);
-        model.addAttribute("ATRIBUTO_CLIENTE", optCliente.get()); 
+        model.addAttribute("ATRIBUTO_CLIENTE", optCliente.get());
         model.addAttribute("restaurante", "El Bucle Infinito");
         return "clientes/detalle";
     }
