@@ -19,6 +19,9 @@
 
     <properties>
         <java.version>17</java.version>
+         <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.projectKey>ytoll_bucleinfinito-manual-ytoll</sonar.projectKey>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
     </properties>
         
     <dependencies>
@@ -63,5 +66,14 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.7.0.6970</version>
+            </plugin>
+        </plugins>
+        </pluginManagement>
     </build>
 </project>
